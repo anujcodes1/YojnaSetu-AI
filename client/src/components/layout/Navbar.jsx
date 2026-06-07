@@ -45,9 +45,7 @@ export default function Navbar() {
             <NavLink to="/" end className={({ isActive }) =>
               `px-4 py-2 rounded-xl text-sm font-medium transition-colors ${isActive ? 'text-saffron-600 bg-saffron-50' : 'text-gray-600 hover:text-saffron-600 hover:bg-saffron-50'}`
             }>Home</NavLink>
-            
-          </div>
-
+           </div>
           {/* Desktop Auth Buttons */}
           <div className="hidden md:flex items-center gap-3">
             {user ? (
