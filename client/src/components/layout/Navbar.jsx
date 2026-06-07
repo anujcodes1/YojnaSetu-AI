@@ -48,7 +48,7 @@ export default function Navbar() {
           </Link>
 
           {/* Right Side - Home + Auth Buttons */}
-          <div className="hidden md:flex items-center gap-3">
+          <div className="hidden md:flex items-center gap-1">
 
             {/* Home NavLink */}
             <NavLink
