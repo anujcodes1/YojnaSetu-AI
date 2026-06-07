@@ -32,25 +32,20 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
 
-          {/* Logo - Left Side */}
+          {/* Logo */}
           <Link to="/" className="flex items-center gap-2.5 flex-shrink-0">
             <div className="w-9 h-9 bg-gradient-to-br from-saffron-500 to-saffron-700 rounded-xl flex items-center justify-center shadow-sm">
               <span className="text-white font-bold text-sm">YS</span>
             </div>
             <div>
-              <p className="font-display font-bold text-navy-800 leading-tight">
-                YojnaSetu
-              </p>
-              <p className="text-xs text-saffron-600 font-medium">
-                AI Platform
-              </p>
+              <p className="font-display font-bold text-navy-800 leading-tight">YojnaSetu</p>
+              <p className="text-xs text-saffron-600 font-medium">AI Platform</p>
             </div>
           </Link>
 
-          {/* Right Side - All buttons together */}
+          {/* Right Side — all items together */}
           <div className="hidden md:flex items-center gap-2">
 
-            {/* Home */}
             <NavLink
               to="/"
               end
@@ -67,7 +62,6 @@ export default function Navbar() {
 
             {user ? (
               <>
-                {/* User Avatar */}
                 <div className="flex items-center gap-2 px-3 py-1.5 bg-gray-50 rounded-xl">
                   <div className="w-7 h-7 rounded-full bg-gradient-to-br from-saffron-400 to-saffron-600 flex items-center justify-center text-white font-semibold text-xs">
                     {user.name?.charAt(0).toUpperCase()}
@@ -76,40 +70,19 @@ export default function Navbar() {
                     {user.name?.split(' ')[0]}
                   </span>
                 </div>
-
-                {/* Dashboard */}
-                <Link
-                  to="/dashboard"
-                  className="btn-primary flex items-center gap-2 text-sm py-2"
-                >
-                  <LayoutDashboard size={15} />
-                  Dashboard
+                <Link to="/dashboard" className="btn-primary flex items-center gap-2 text-sm py-2">
+                  <LayoutDashboard size={15} /> Dashboard
                 </Link>
-
-                {/* Logout */}
-                <button
-                  onClick={handleLogout}
-                  className="btn-secondary flex items-center gap-2 text-sm py-2"
-                >
-                  <LogOut size={15} />
-                  Logout
+                <button onClick={handleLogout} className="btn-secondary flex items-center gap-2 text-sm py-2">
+                  <LogOut size={15} /> Logout
                 </button>
               </>
             ) : (
               <>
-                {/* Login */}
-                <Link
-                  to="/login"
-                  className="btn-secondary text-sm py-2"
-                >
+                <Link to="/login" className="btn-secondary text-sm py-2">
                   Login
                 </Link>
-
-                {/* Get Started */}
-                <Link
-                  to="/register"
-                  className="btn-primary text-sm py-2"
-                >
+                <Link to="/register" className="btn-primary text-sm py-2">
                   Get Started
                 </Link>
               </>
@@ -130,7 +103,6 @@ export default function Navbar() {
       {/* Mobile Menu */}
       {menuOpen && (
         <div className="md:hidden bg-white border-t border-gray-100 px-4 py-4 space-y-1 animate-fade-in">
-
           <Link
             to="/"
             onClick={() => setMenuOpen(false)}
@@ -138,44 +110,27 @@ export default function Navbar() {
           >
             Home
           </Link>
-
           <div className="pt-3 border-t border-gray-100 flex flex-col gap-2">
             {user ? (
               <>
-                <Link
-                  to="/dashboard"
-                  onClick={() => setMenuOpen(false)}
-                  className="btn-primary text-center text-sm"
-                >
+                <Link to="/dashboard" onClick={() => setMenuOpen(false)} className="btn-primary text-center text-sm">
                   Go to Dashboard
                 </Link>
-                <button
-                  onClick={() => { handleLogout(); setMenuOpen(false); }}
-                  className="btn-secondary text-sm"
-                >
+                <button onClick={() => { handleLogout(); setMenuOpen(false); }} className="btn-secondary text-sm">
                   Logout
                 </button>
               </>
             ) : (
               <>
-                <Link
-                  to="/login"
-                  onClick={() => setMenuOpen(false)}
-                  className="btn-secondary text-center text-sm"
-                >
+                <Link to="/login" onClick={() => setMenuOpen(false)} className="btn-secondary text-center text-sm">
                   Login
                 </Link>
-                <Link
-                  to="/register"
-                  onClick={() => setMenuOpen(false)}
-                  className="btn-primary text-center text-sm"
-                >
+                <Link to="/register" onClick={() => setMenuOpen(false)} className="btn-primary text-center text-sm">
                   Get Started
                 </Link>
               </>
             )}
           </div>
-
         </div>
       )}
     </nav>
