@@ -26,9 +26,12 @@ toast.success('Logged out successfully');
 navigate('/');
 };
 
-return ( <nav className="bg-white border-b border-gray-100 sticky top-0 z-50 shadow-sm"> <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8"> <div className="flex items-center justify-between h-16">
+return ( <nav className="bg-white border-b border-gray-100 sticky top-0 z-50 shadow-sm"> <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
 ```
+    {/* MAIN NAVBAR */}
+    <div className="flex items-center justify-center gap-10 h-16">
+
       {/* Logo */}
       <Link to="/" className="flex items-center gap-2.5">
         <div className="w-9 h-9 bg-gradient-to-br from-saffron-500 to-saffron-700 rounded-xl flex items-center justify-center shadow-sm">
@@ -39,6 +42,7 @@ return ( <nav className="bg-white border-b border-gray-100 sticky top-0 z-50 sha
           <p className="font-display font-bold text-navy-800 leading-tight">
             YojnaSetu
           </p>
+
           <p className="text-xs text-saffron-600 font-medium">
             AI Platform
           </p>
@@ -46,7 +50,7 @@ return ( <nav className="bg-white border-b border-gray-100 sticky top-0 z-50 sha
       </Link>
 
       {/* Desktop Links */}
-      <div className="hidden md:flex items-center gap-3">
+      <div className="hidden md:flex items-center gap-2">
         <NavLink
           to="/"
           end
@@ -94,18 +98,24 @@ return ( <nav className="bg-white border-b border-gray-100 sticky top-0 z-50 sha
           </>
         ) : (
           <>
-            <Link to="/login" className="btn-secondary text-sm py-2">
+            <Link
+              to="/login"
+              className="btn-secondary text-sm py-2"
+            >
               Login
             </Link>
 
-            <Link to="/register" className="btn-primary text-sm py-2">
+            <Link
+              to="/register"
+              className="btn-primary text-sm py-2"
+            >
               Get Started
             </Link>
           </>
         )}
       </div>
 
-      {/* Mobile menu button */}
+      {/* Mobile Menu Button */}
       <button
         className="md:hidden p-2 rounded-xl hover:bg-gray-100"
         onClick={() => setMenuOpen(!menuOpen)}
@@ -118,6 +128,7 @@ return ( <nav className="bg-white border-b border-gray-100 sticky top-0 z-50 sha
   {/* Mobile Menu */}
   {menuOpen && (
     <div className="md:hidden bg-white border-t border-gray-100 px-4 py-4 space-y-2 animate-fade-in">
+
       <Link
         to="/"
         onClick={() => setMenuOpen(false)}
@@ -192,4 +203,3 @@ return ( <nav className="bg-white border-b border-gray-100 sticky top-0 z-50 sha
 
 );
 }
-
