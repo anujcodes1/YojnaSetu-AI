@@ -11,8 +11,15 @@ const location = useLocation();
 const [menuOpen, setMenuOpen] = useState(false);
 
 // Hide navbar on dashboard/sidebar pages
-const hiddenRoutes = ['/dashboard', '/recommendations', '/profile',
-'/saved', '/eligibility', '/chat', '/admin'];
+const hiddenRoutes = [
+'/dashboard',
+'/recommendations',
+'/profile',
+'/saved',
+'/eligibility',
+'/chat',
+'/admin'
+];
 
 const shouldHide = hiddenRoutes.some(route =>
 location.pathname.startsWith(route)
@@ -26,11 +33,11 @@ toast.success('Logged out successfully');
 navigate('/');
 };
 
-return ( <nav className="bg-white border-b border-gray-100 sticky top-0 z-50 shadow-sm"> <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+return ( <nav className="bg-white border-b border-gray-100 sticky top-0 z-50 shadow-sm"> <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
 ```
-    {/* MAIN NAVBAR */}
-    <div className="flex items-center justify-center gap-10 h-16">
+    {/* Navbar Container */}
+    <div className="flex items-center h-16">
 
       {/* Logo */}
       <Link to="/" className="flex items-center gap-2.5">
@@ -49,8 +56,10 @@ return ( <nav className="bg-white border-b border-gray-100 sticky top-0 z-50 sha
         </div>
       </Link>
 
-      {/* Desktop Links */}
-      <div className="hidden md:flex items-center gap-2">
+      {/* Desktop Navigation + Auth */}
+      <div className="hidden md:flex items-center gap-3 ml-10">
+
+        {/* Home */}
         <NavLink
           to="/"
           end
@@ -64,12 +73,10 @@ return ( <nav className="bg-white border-b border-gray-100 sticky top-0 z-50 sha
         >
           Home
         </NavLink>
-      </div>
 
-      {/* Desktop Auth Buttons */}
-      <div className="hidden md:flex items-center gap-3">
         {user ? (
           <>
+            {/* User Info */}
             <div className="flex items-center gap-2 px-3 py-1.5 bg-gray-50 rounded-xl">
               <div className="w-7 h-7 rounded-full bg-gradient-to-br from-saffron-400 to-saffron-600 flex items-center justify-center text-white font-semibold text-xs">
                 {user.name?.charAt(0).toUpperCase()}
@@ -80,6 +87,7 @@ return ( <nav className="bg-white border-b border-gray-100 sticky top-0 z-50 sha
               </span>
             </div>
 
+            {/* Dashboard */}
             <Link
               to="/dashboard"
               className="btn-primary flex items-center gap-2 text-sm py-2"
@@ -88,6 +96,7 @@ return ( <nav className="bg-white border-b border-gray-100 sticky top-0 z-50 sha
               Dashboard
             </Link>
 
+            {/* Logout */}
             <button
               onClick={handleLogout}
               className="btn-secondary flex items-center gap-2 text-sm py-2"
@@ -98,6 +107,7 @@ return ( <nav className="bg-white border-b border-gray-100 sticky top-0 z-50 sha
           </>
         ) : (
           <>
+            {/* Login */}
             <Link
               to="/login"
               className="btn-secondary text-sm py-2"
@@ -105,6 +115,7 @@ return ( <nav className="bg-white border-b border-gray-100 sticky top-0 z-50 sha
               Login
             </Link>
 
+            {/* Register */}
             <Link
               to="/register"
               className="btn-primary text-sm py-2"
@@ -117,7 +128,7 @@ return ( <nav className="bg-white border-b border-gray-100 sticky top-0 z-50 sha
 
       {/* Mobile Menu Button */}
       <button
-        className="md:hidden p-2 rounded-xl hover:bg-gray-100"
+        className="md:hidden ml-auto p-2 rounded-xl hover:bg-gray-100"
         onClick={() => setMenuOpen(!menuOpen)}
       >
         {menuOpen ? <X size={22} /> : <Menu size={22} />}
