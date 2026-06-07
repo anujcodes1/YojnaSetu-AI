@@ -47,10 +47,10 @@ export default function Navbar() {
             </div>
           </Link>
 
-          {/* Right Side - Home + Auth Buttons */}
-          <div className="hidden md:flex items-center gap-1">
+          {/* Right Side - All buttons together */}
+          <div className="hidden md:flex items-center gap-2">
 
-            {/* Home NavLink */}
+            {/* Home */}
             <NavLink
               to="/"
               end
@@ -67,7 +67,7 @@ export default function Navbar() {
 
             {user ? (
               <>
-                {/* User Avatar + Name */}
+                {/* User Avatar */}
                 <div className="flex items-center gap-2 px-3 py-1.5 bg-gray-50 rounded-xl">
                   <div className="w-7 h-7 rounded-full bg-gradient-to-br from-saffron-400 to-saffron-600 flex items-center justify-center text-white font-semibold text-xs">
                     {user.name?.charAt(0).toUpperCase()}
@@ -77,7 +77,7 @@ export default function Navbar() {
                   </span>
                 </div>
 
-                {/* Dashboard Button */}
+                {/* Dashboard */}
                 <Link
                   to="/dashboard"
                   className="btn-primary flex items-center gap-2 text-sm py-2"
@@ -86,7 +86,7 @@ export default function Navbar() {
                   Dashboard
                 </Link>
 
-                {/* Logout Button */}
+                {/* Logout */}
                 <button
                   onClick={handleLogout}
                   className="btn-secondary flex items-center gap-2 text-sm py-2"
@@ -97,7 +97,7 @@ export default function Navbar() {
               </>
             ) : (
               <>
-                {/* Login Button */}
+                {/* Login */}
                 <Link
                   to="/login"
                   className="btn-secondary text-sm py-2"
@@ -105,7 +105,7 @@ export default function Navbar() {
                   Login
                 </Link>
 
-                {/* Get Started Button */}
+                {/* Get Started */}
                 <Link
                   to="/register"
                   className="btn-primary text-sm py-2"
